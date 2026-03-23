@@ -1,17 +1,19 @@
 #!/bin/bash
 
-echo "==============================="
-echo "   System Info by Kacper"
-echo "==============================="
+OS_NAME=$(lsb_release -d 2>/dev/null | cut -f2)
+
+echo "====================================="
+echo "        System Info"
+echo "     by Kremowka_FFV"
+echo "====================================="
+
+printf "🖥️ %-20s %s\n" "OS:" "$OS_NAME"
+printf "💻 %-20s %s\n" "Hostname:" "$(hostname)"
+printf "👤 %-20s %s\n" "User:" "$(whoami)"
+printf "🧬 %-20s %s\n" "Kernel:" "$(uname -r)"
+printf "⏱️ %-20s %s\n" "Uptime:" "$(uptime -p)"
 
 echo ""
-echo "📌 Nazwa hosta: $(hostname)"
-echo "📌 Użytkownik: $(whoami)"
-echo "📌 System: $(lsb_release -d 2>/dev/null | cut -f2)"
-echo "📌 Kernel: $(uname -r)"
-echo "📌 Czas działania systemu: $(uptime -p)"
-echo "📌 Zużycie pamięci:"
+echo "🧠 Memory Usage:"
 free -h
 echo ""
-echo "Gotowe!"
-
